@@ -28,6 +28,18 @@
   color: #61dafb;
 }
 
+.card{
+  width:30%;
+  border: none;
+  outline: none;
+  opacity: 0.7;
+  margin-left:37%;
+  margin-top:10%;
+  height:40%;
+  color: white;
+  background: linear-gradient(60deg,#7E8A8D 0%, #434A4B 100%);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +47,20 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#form1{
+  border: none;
+  border-bottom-left-radius: 8px;
+  margin-left: 37%;
+}
+
+.button{
+  background: #95A5A7;
+  color:aliceblue;
+  border: none;
+  border-top-right-radius: 8px;
+}
+.button:hover{
+  background:#2B3031;
 }

@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import axios from 'axios';
+import React,{useEffect, useState} from 'react';
 import './App.css';
+import Input from './components/Input';
+import WeatherTable from './components/WeatherTable';
 
 function App() {
+  const [city, setCity] = useState("");
+  const [data,setData] = useState([]);
+  const [Available, setAvailable] = useState(false);
+  useEffect(()=>{
+    async function fetchData(){
+      const result = await axios(`http://api.weatherapi.com/v1/current.json?key=354e46b3a38c464daff175710212606&q=${city}&aqi=yes`);
+      console.log(result.data);
+      setData(result.data)
+      setAvailable(true);
+    }
+    fetchData();
+  },[city])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container-fluid col-md mt-12">
+          <Input city={city} setCity={setCity}/>
+        
+        
+          <WeatherTable Available={Available} data={data}/>
     </div>
   );
 }
